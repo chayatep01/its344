@@ -1,0 +1,9 @@
+{
+  "name": "week5",
+  "version": "1.0.0",
+  "main": "codes.js",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.0"
+  }
+}

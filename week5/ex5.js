@@ -1,0 +1,6 @@
+
+
+function getJsonWithPromise (){
+    const url = ''
+    
+}

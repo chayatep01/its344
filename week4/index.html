@@ -1,0 +1,123 @@
+<<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <title>Comperio Super Simple Image Search</title>
+    
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;;
+            background-color: #808080;
+            
+            
+        } 
+      h1 {
+        background-color:yellow;
+      }
+      input {
+         width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          resize: vertical;
+          margin-bottom:10px;
+          background:white;
+          height:50px;
+          font-size:18px;
+          text-align:center;
+      }
+      
+     button {
+        width: 130px;
+        height: 40px;
+        background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
+        border: none;
+        border-radius: 5px;
+        position: relative;
+        border-bottom: 4px solid #2b8bc6;
+        color: #fbfbfb;
+        font-weight: 600;
+        font-family: 'Open Sans', sans-serif;
+        text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+        font-size: 15px;
+        text-align: left;
+        text-indent: 5px;
+        box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+        cursor: pointer;
+
+      /* Just for presentation */  
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        text-align:center;
+       
+      }
+      img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+        box-shadow: 5px 5px;
+        display: block;
+        margin: 0 auto 0 auto; /* Centred */
+        width: 100%;
+        
+        
+      }
+      @media screen and (min-width: 40em) {
+        img {
+          padding: 0 2em 0 2em;
+          width: 66.6%;
+        }
+      }
+        
+    </style>
+  </head>
+  <body>
+    
+    
+    
+    <input type="text" id="animal"><button id="search">search</button>
+  </div>
+  <main>
+    <div class = "photo">
+    </div>
+</main>
+
+<script>
+  var main = function () {
+
+var animal = 'dogs';
+
+var url = "http://api.flickr.com/services/feeds/photos_public.gne?tags="+animal+"&format=json&jsoncallback=?";
+
+$( "#search" ).click(function() {
+    animal = $("#animal").val();
+    url = "http://api.flickr.com/services/feeds/photos_public.gne?tags="+animal+"&format=json&jsoncallback=?";
+
+    $.getJSON(url, function (flickrResponse) {
+        flickrResponse.items.forEach(function (item, index) {
+           
+           (function () {
+               setTimeout(function () {
+                   var $img = $("<img>").hide();
+                   $("main .photo").empty();
+                   $img.attr("src", item.media.m);
+                   $("main .photo").append($img);
+                   $img.fadeIn();
+               }, 3000*(index));
+            })();
+       });
+   });
+
+})
+};
+
+
+$(document).ready(main);
+
+
+</script>
+
+
+  
+  </body>
+</html>
