@@ -3,20 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-/*
 
-const performMagic = () => {
-  alert('TAADAH !')
-}
 
 class ChildComponent extends Component{
-  
 
   render() {
     return (
       <div>
         <div className="prompt">Add a click handler to this button so that when clicked, performMagic is called in the parent component.</div>
-        <button onClick={performMagic}>Do Magic</button>
+        <button onClick={() => this.props.parentPerformMagic()}>Do Magic</button>
       </div>
     );
   }
@@ -30,7 +25,7 @@ class ParentComponent extends Component {
   render() {
     return (
       <div>
-        <ChildComponent />
+        <ChildComponent parentPerformMagic={this.performMagic}/>
       </div>
     );
   }
@@ -41,9 +36,13 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+registerServiceWorker();
 
-*/
+export default ParentComponent;
 
+
+
+/*
 class Board extends Component{
   render() {
     var className = "board";
@@ -101,5 +100,5 @@ ReactDOM.render(
   <BoardSwitcher numBoards={3} />,
   document.getElementById('root')
 )
-
+*/
 registerServiceWorker();

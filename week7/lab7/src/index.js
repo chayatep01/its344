@@ -16,13 +16,7 @@ class App extends Component {
     
   }
   
-
-  
-  
-
-
-
-  handleStartStopPress() {
+handleStartStopPress() {
     // if watch is running clear interval and set running to false
         if(this.state.running !== false) {
             clearInterval(this.increment)
@@ -67,9 +61,7 @@ class App extends Component {
       } else {
         button = <StopButton onClick={this.handleStartStopPress} />;
       }
-
-   
-    return (
+     return (
        <div>
         <h1>{this.state.second}</h1>
         {button}
